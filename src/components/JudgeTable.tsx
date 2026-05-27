@@ -1,6 +1,6 @@
 import type { FunctionComponent } from 'react';
 import styles from './JudgeTable.module.css';
-import type { JudgeResult } from '../data/judgeResults';
+import type { JudgeResult } from '../api/api';
 
 type Props = {
   rows: JudgeResult[];

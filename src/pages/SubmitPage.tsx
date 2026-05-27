@@ -1,11 +1,11 @@
-import { useState, type FunctionComponent } from 'react';
+import { useState, useEffect, type FunctionComponent } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Header from '../components/Header';
 import Footer from '../components/Footer';
 import Selectbox from '../components/Selectbox';
 import BaseInput from '../components/BaseInput';
 import Button from '../components/Button';
-import problems from '../data/problems';
+import { fetchProblems, submitCode, type Problem } from '../api/api';
 
 const LANGUAGES = ['Python3', 'C++17', 'C++14', 'Java', 'C', 'Kotlin', 'Swift', 'Go'];
 
@@ -13,10 +13,31 @@ const SubmitPage: FunctionComponent = () => {
   const { id } = useParams<{ id: string }>();
   const navigate = useNavigate();
 
-  const problem = problems.find(p => p.id === Number(id));
-
+  const [problem, setProblem] = useState<Problem | null>(null);
   const [language, setLanguage] = useState(LANGUAGES[0]);
   const [code, setCode] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState<string | null>(null);
+
+  useEffect(() => {
+    fetchProblems()
+      .then(list => setProblem(list.find(p => p.id === Number(id)) ?? null))
+      .catch(() => {});
+  }, [id]);
+
+  const handleSubmit = async () => {
+    if (!code.trim() || submitting) return;
+    setSubmitting(true);
+    setSubmitError(null);
+    try {
+      await submitCode(Number(id), { language, code });
+      navigate('/status');
+    } catch (e) {
+      setSubmitError(e instanceof Error ? e.message : '제출에 실패했습니다.');
+    } finally {
+      setSubmitting(false);
+    }
+  };
 
   return (
     <>
@@ -49,7 +70,14 @@ const SubmitPage: FunctionComponent = () => {
           />
         </div>
 
-        <Button label="제출하기" onClick={() => alert(`[${language}] 코드가 제출되었습니다.`)} />
+        {submitError && (
+          <div style={{ fontSize: '14px', color: '#ff383c', fontFamily: 'Pretendard GOV' }}>{submitError}</div>
+        )}
+
+        <Button
+          label={submitting ? '채점 중...' : '제출하기'}
+          onClick={handleSubmit}
+        />
       </main>
       <Footer />
     </>
