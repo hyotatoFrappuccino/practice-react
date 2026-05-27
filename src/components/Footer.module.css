@@ -1,0 +1,191 @@
+.footer {
+    width: 100vw;
+    position: relative;
+    left: 50%;
+    margin-left: -50vw;
+    margin-top: auto;
+    background-color: #f0f0f0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    font-size: 17px;
+    color: #1d1d1d;
+    font-family: 'Pretendard';
+}
+.content {
+    width: 1280px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 40px 0px;
+    box-sizing: border-box;
+    gap: 40px;
+}
+.mi {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 28px;
+    color: #58595b;
+}
+.favicon11 {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    object-fit: cover;
+}
+.codeclass {
+    position: relative;
+    line-height: 150%;
+    font-weight: 600;
+}
+.grid {
+    align-self: stretch;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+.div {
+    height: 80px;
+    width: 954px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 24px;
+}
+.div2 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+.div5 {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+}
+.div6 {
+    display: flex;
+    align-items: flex-start;
+    gap: 4px;
+}
+.b {
+    position: relative;
+    line-height: 150%;
+}
+.serviceLink {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 40px;
+    max-width: 302px;
+}
+.button {
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    box-sizing: border-box;
+    gap: 4px;
+}
+.icon20 {
+    height: 20px;
+    width: 20px;
+    position: relative;
+}
+.div10 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.1;
+}
+.liveArea {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+}
+.liveAreaChild {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 16px;
+    height: 16px;
+}
+.liveAreaItem {
+    position: absolute;
+    top: 3px;
+    left: 5.5px;
+    width: 5.5px;
+    height: 10px;
+    object-fit: contain;
+}
+.socialMedia {
+    display: flex;
+    align-items: flex-start;
+    gap: 8px;
+}
+.socialMediaLinkBase {
+    display: flex;
+    align-items: flex-start;
+}
+.imgInstagramIcon {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    border-radius: 120px;
+}
+.imgYoutubeIcon {
+    height: 40px;
+    width: 40px;
+    position: relative;
+    border-radius: 120px;
+    object-fit: cover;
+}
+.copyright {
+    width: 1280px;
+    border-top: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    padding: 16px 0px 0px;
+    gap: 40px;
+}
+.div11 {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    gap: 24px;
+}
+.button2 {
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    box-sizing: border-box;
+}
+.button3 {
+    height: 24px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    box-sizing: border-box;
+    color: #003675;
+}
+.copyright2 {
+    display: flex;
+    align-items: center;
+    font-size: 15px;
+    color: #555;
+}
+

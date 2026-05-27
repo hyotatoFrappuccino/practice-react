@@ -1,0 +1,21 @@
+.baseInput {
+      width: 100%;
+      min-height: 320px;
+      position: relative;
+      border-radius: 8px;
+      background-color: #fff;
+      border: 1px solid #717171;
+      box-sizing: border-box;
+      padding: 16px;
+      resize: vertical;
+      text-align: left;
+      font-size: 15px;
+      color: #1d1d1d;
+      font-family: 'Pretendard Variable', monospace;
+      line-height: 1.6;
+      outline: none;
+      transition: border-color 0.15s;
+}
+.baseInput:focus {
+      border-color: #246beb;
+}

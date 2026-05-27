@@ -1,0 +1,65 @@
+.div {
+      width: 100%;
+      position: relative;
+      border-radius: 12px;
+      background-color: #f8f8f8;
+      border: 1px solid #c6c6c6;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 40px;
+      gap: 40px;
+      text-align: left;
+      font-size: 17px;
+      color: #1d1d1d;
+      font-family: 'Pretendard GOV';
+}
+.baseInfo {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      font-size: 25px;
+}
+.baseInfo2 {
+      width: 980px;
+      border-bottom: 1px dashed #c6c6c6;
+      box-sizing: border-box;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: center;
+      padding: 0px 0px 40px;
+      gap: 40px;
+}
+.div2 {
+      display: flex;
+      align-items: center;
+}
+.b {
+      position: relative;
+      line-height: 150%;
+}
+.div4 {
+      align-self: stretch;
+      display: flex;
+      align-items: center;
+      color: #003675;
+}
+.b2 {
+      flex: 1;
+      position: relative;
+      text-decoration: underline;
+      line-height: 150%;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+}
+.aB {
+      align-self: stretch;
+      position: relative;
+      font-size: 19px;
+      line-height: 150%;
+      font-family: 'Pretendard Variable';
+}

@@ -1,0 +1,247 @@
+.headertemplate {
+    width: 100%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: left;
+    font-size: 15px;
+    color: #1d1d1d;
+    font-family: 'Pretendard';
+}
+.topPc {
+    width: 100%;
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 100%;
+}
+.header {
+    width: 1280px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 30px 0px 16px;
+    box-sizing: border-box;
+    gap: 4px;
+}
+.utilitySmall {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    padding: 10px 0px;
+    gap: 12px;
+}
+.button {
+    height: 20px;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2px;
+    box-sizing: border-box;
+    gap: 2px;
+}
+.div {
+    position: relative;
+    line-height: 150%;
+}
+.icon16 {
+    height: 16px;
+    width: 16px;
+    position: relative;
+}
+.liveArea {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 12px;
+    height: 12px;
+}
+.liveAreaChild {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 12px;
+    height: 12px;
+}
+.liveAreaItem {
+    position: absolute;
+    top: 4.13px;
+    left: 2.25px;
+    width: 7.5px;
+    height: 4.1px;
+}
+.divider {
+    height: 16px;
+    width: 1px;
+    position: relative;
+    background-color: #d8d8d8;
+}
+.utilityGroup {
+    align-self: stretch;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 28px;
+    color: #58595b;
+}
+.misloganH48 {
+    display: flex;
+    align-items: flex-start;
+}
+.mi {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+.favicon11 {
+    height: 50px;
+    width: 50px;
+    position: relative;
+    object-fit: cover;
+}
+.codeclass {
+    position: relative;
+    line-height: 150%;
+    font-weight: 600;
+}
+.utilityMedium {
+    flex: 1;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-end;
+    gap: 8px;
+    font-size: 17px;
+    color: #1d1d1d;
+}
+.baseHeaderUtilityMenu {
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 10px 12px;
+    gap: 8px;
+}
+.icon20 {
+    height: 20px;
+    width: 20px;
+    position: relative;
+}
+.div5 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 20px;
+    height: 20px;
+    opacity: 0.1;
+}
+.liveArea3 {
+    position: absolute;
+    height: 80%;
+    width: 80%;
+    top: 10%;
+    right: 10%;
+    bottom: 10%;
+    left: 10%;
+}
+.rectangleDiv {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0%;
+    right: 0%;
+    bottom: 0%;
+    left: 0%;
+}
+.liveAreaChild2 {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    border-radius: 11px;
+    border: 1.4px solid rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+    width: 14px;
+    height: 14px;
+}
+.lineIcon {
+    position: absolute;
+    top: 11.46px;
+    left: 11.46px;
+    width: 3.5px;
+    height: 3.5px;
+    object-fit: contain;
+}
+.liveAreaIcon {
+    position: absolute;
+    top: 2px;
+    left: 2px;
+    width: 16px;
+    height: 16px;
+}
+.baseGnb1depth {
+    align-self: stretch;
+    height: 64px;
+    background-color: #fff;
+    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    font-size: 19px;
+    color: #555;
+}
+.gnbLeft {
+    width: 1280px;
+    height: 64px;
+    background-color: #fff;
+    border-top: 1px solid #d8d8d8;
+    border-bottom: 1px solid #d8d8d8;
+    box-sizing: border-box;
+    overflow: hidden;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    padding: 1px 0px;
+    gap: 16px;
+}
+.baseGnb1depthAtomic {
+    height: 62px;
+    border-bottom: 4px solid #003675;
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 16px;
+    color: #003675;
+}
+.searchInput {
+    height: 36px;
+    border: 1.5px solid #003675;
+    border-radius: 6px;
+    padding: 0 12px;
+    font-size: 15px;
+    font-family: 'Pretendard';
+    color: #1d1d1d;
+    outline: none;
+    width: 220px;
+    transition: box-shadow 0.2s;
+    &:focus {
+        box-shadow: 0 0 0 3px rgba(0, 54, 117, 0.15);
+    }
+}
+.baseGnb1depthAtomic2 {
+    height: 62px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0px 16px;
+    box-sizing: border-box;
+}
+

@@ -1,0 +1,102 @@
+.tableWrapper {
+      width: 100%;
+      overflow-x: auto;
+}
+.table {
+      min-width: 900px;
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      text-align: left;
+      font-size: 17px;
+      color: #555;
+      font-family: 'Pretendard Variable';
+}
+.columnHeader {
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      font-size: 15px;
+      color: #1d1d1d;
+      font-family: 'Pretendard GOV';
+}
+.col {
+      flex: 1;
+      background-color: #edf1f5;
+      border-bottom: 1px solid #99b0cb;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+      white-space: nowrap;
+}
+.colId {
+      flex: 1.1;
+      background-color: #edf1f5;
+      border-bottom: 1px solid #99b0cb;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+}
+.colResult {
+      flex: 2.7;
+      background-color: #edf1f5;
+      border-bottom: 1px solid #99b0cb;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      padding: 14px 16px;
+}
+.b {
+      position: relative;
+      line-height: 150%;
+}
+.rowGroup {
+      width: 100%;
+      display: flex;
+      align-items: stretch;
+}
+.cell {
+      flex: 1;
+      border-bottom: 1px solid #d8d8d8;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      white-space: nowrap;
+}
+.cellId {
+      flex: 1.1;
+      border-bottom: 1px solid #d8d8d8;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      color: #4285f4;
+}
+.cellProblem {
+      flex: 1;
+      border-bottom: 1px solid #d8d8d8;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      padding: 16px;
+      color: #4285f4;
+}
+.cellResult {
+      flex: 2.7;
+      border-bottom: 1px solid #d8d8d8;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      padding: 16px;
+}
+.span {
+      line-height: 150%;
+}
+.unit {
+      color: #ff383c;
+      line-height: 150%;
+}

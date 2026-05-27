@@ -1,0 +1,26 @@
+.button {
+      height: 48px;
+      position: relative;
+      border-radius: 8px;
+      background-color: #246beb;
+      width: fit-content;
+      align-self: flex-end;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 0px 16px;
+      box-sizing: border-box;
+      text-align: left;
+      font-size: 17px;
+      color: #fff;
+      font-family: 'Pretendard Variable';
+      cursor: pointer;
+      transition: background-color 0.15s;
+}
+.button:hover {
+      background-color: #1a5bd4;
+}
+.div {
+      position: relative;
+      line-height: 150%;
+}

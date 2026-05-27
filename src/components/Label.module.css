@@ -1,0 +1,14 @@
+.label {
+      position: relative;
+      width: 100%;
+      display: flex;
+      align-items: flex-start;
+      text-align: left;
+      font-size: 15px;
+      color: #1d1d1d;
+      font-family: 'Pretendard GOV';
+}
+.label2 {
+      position: relative;
+      line-height: 150%;
+}
