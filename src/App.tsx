@@ -5,7 +5,10 @@ import Header from "./components/Header"
 import Footer from "./components/Footer.tsx";
 import Table from "./components/Table.tsx";
 import Pagination from "./components/Pagination.tsx";
+import RateRangeSlider from "./components/RateRangeSlider.tsx";
+import DailyProblem from "./components/DailyProblem.tsx";
 import { fetchProblems, type Problem } from './api/api';
+import { getDailyIndex } from './utils/dailyHash';
 
 const ITEMS_PER_PAGE = 10;
 
@@ -13,6 +16,8 @@ function App() {
   const [searchParams] = useSearchParams();
   const [currentPage, setCurrentPage] = useState(1);
   const [searchQuery, setSearchQuery] = useState(searchParams.get('q') ?? '');
+  const [rateMin, setRateMin] = useState(0);
+  const [rateMax, setRateMax] = useState(100);
   const [problems, setProblems] = useState<Problem[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -29,9 +34,20 @@ function App() {
     setCurrentPage(1);
   };
 
-  const filteredProblems = problems.filter(p =>
-    p.title.includes(searchQuery) || String(p.id).includes(searchQuery)
-  );
+  const handleRateChange = (min: number, max: number) => {
+    setRateMin(min);
+    setRateMax(max);
+    setCurrentPage(1);
+  };
+
+  const dailyProblem = problems.length > 0 ? problems[getDailyIndex(problems.length)] : null;
+
+  const filteredProblems = problems.filter(p => {
+    const matchesSearch = p.title.includes(searchQuery) || String(p.id).includes(searchQuery);
+    const rate = parseFloat(p.rate);
+    const matchesRate = isNaN(rate) || (rate >= rateMin && rate <= rateMax);
+    return matchesSearch && matchesRate;
+  });
 
   const totalPages = Math.ceil(filteredProblems.length / ITEMS_PER_PAGE);
   const paginatedProblems = filteredProblems.slice(
@@ -47,6 +63,10 @@ function App() {
         {error && <div style={{ textAlign: 'center', padding: '40px', color: '#ff383c', fontFamily: 'Pretendard GOV' }}>{error}</div>}
         {!loading && !error && (
           <>
+            {dailyProblem && <DailyProblem problem={dailyProblem} />}
+            <div style={{ width: '1295px', margin: '0 auto', display: 'flex', justifyContent: 'flex-end' }}>
+              <RateRangeSlider min={rateMin} max={rateMax} onChange={handleRateChange} />
+            </div>
             <Table rows={paginatedProblems} />
             <Pagination
               currentPage={currentPage}

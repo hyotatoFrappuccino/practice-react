@@ -1,0 +1,96 @@
+.wrapper {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  padding: 12px 20px;
+  background: #fff;
+  border: 1px solid #d8d8d8;
+  border-radius: 8px;
+  width: fit-content;
+  font-family: 'Pretendard GOV', sans-serif;
+}
+
+.label {
+  font-size: 14px;
+  color: #555;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.sliderArea {
+  position: relative;
+  width: 200px;
+  height: 20px;
+  flex-shrink: 0;
+}
+
+.track {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  right: 0;
+  height: 4px;
+  transform: translateY(-50%);
+  background: #d8d8d8;
+  border-radius: 2px;
+  pointer-events: none;
+}
+
+.fill {
+  position: absolute;
+  height: 100%;
+  background: #2f6fcd;
+  border-radius: 2px;
+}
+
+.thumb {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  appearance: none;
+  -webkit-appearance: none;
+  background: transparent;
+  pointer-events: none;
+  margin: 0;
+  padding: 0;
+}
+
+.thumb::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2f6fcd;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.thumb::-moz-range-thumb {
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background: #2f6fcd;
+  border: 2px solid #fff;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  pointer-events: all;
+}
+
+.thumb:focus-visible::-webkit-slider-thumb {
+  outline: 2px solid #2f6fcd;
+  outline-offset: 2px;
+}
+
+.value {
+  font-size: 14px;
+  color: #1d1d1d;
+  white-space: nowrap;
+  min-width: 80px;
+  text-align: right;
+  flex-shrink: 0;
+}

@@ -36,7 +36,11 @@ const Table: FunctionComponent<Props> = ({ rows }) => {
                               <b className={styles.b}>정답 비율</b>
                         </div>
                   </div>
-                  {rows.map((row) => (
+                  {rows.length === 0 ? (
+                        <div style={{ textAlign: 'center', padding: '40px', color: '#555', fontFamily: 'Pretendard GOV', fontSize: '15px' }}>
+                              검색 결과가 없습니다.
+                        </div>
+                  ) : rows.map((row) => (
                         <div
                               key={row.id}
                               className={styles.rowGroup}

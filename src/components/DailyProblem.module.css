@@ -1,0 +1,72 @@
+.card {
+  width: 1295px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding: 18px 24px;
+  background: linear-gradient(135deg, #f0f5ff 0%, #e8f0fa 100%);
+  border: 1px solid #99b0cb;
+  border-left: 4px solid #003675;
+  border-radius: 8px;
+  cursor: pointer;
+  box-sizing: border-box;
+  transition: box-shadow 0.15s, background 0.15s;
+  font-family: 'Pretendard GOV', sans-serif;
+}
+
+.card:hover {
+  box-shadow: 0 4px 16px rgba(0, 54, 117, 0.12);
+  background: linear-gradient(135deg, #e6eeff 0%, #dce9f7 100%);
+}
+
+.badge {
+  flex-shrink: 0;
+  background-color: #003675;
+  color: #fff;
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 10px;
+  border-radius: 20px;
+  white-space: nowrap;
+  letter-spacing: 0.3px;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  min-width: 0;
+}
+
+.id {
+  flex-shrink: 0;
+  font-size: 15px;
+  color: #555;
+}
+
+.title {
+  font-size: 17px;
+  font-weight: 600;
+  color: #1d1d1d;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.meta {
+  flex-shrink: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.metaItem {
+  font-size: 14px;
+  color: #555;
+}
+
+.metaItem b {
+  color: #003675;
+  font-weight: 600;
+}
