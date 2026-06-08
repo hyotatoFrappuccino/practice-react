@@ -23,7 +23,8 @@
       font-size: 25px;
 }
 .baseInfo2 {
-      width: 980px;
+      width: 100%;
+      max-width: 980px;
       border-bottom: 1px dashed #c6c6c6;
       box-sizing: border-box;
       display: flex;

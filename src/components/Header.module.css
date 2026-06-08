@@ -18,12 +18,13 @@
     max-width: 100%;
 }
 .header {
-    width: 1280px;
+    width: 100%;
+    max-width: 1280px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
     justify-content: center;
-    padding: 30px 0px 16px;
+    padding: 30px 16px 16px;
     box-sizing: border-box;
     gap: 4px;
 }
@@ -198,18 +199,20 @@
     color: #555;
 }
 .gnbLeft {
-    width: 1280px;
+    width: 100%;
+    max-width: 1280px;
     height: 64px;
     background-color: #fff;
     border-top: 1px solid #d8d8d8;
     border-bottom: 1px solid #d8d8d8;
     box-sizing: border-box;
-    overflow: hidden;
+    overflow-x: auto;
     flex-shrink: 0;
     display: flex;
     align-items: center;
-    padding: 1px 0px;
+    padding: 1px 16px;
     gap: 16px;
+    box-sizing: border-box;
 }
 .baseGnb1depthAtomic {
     height: 62px;

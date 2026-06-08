@@ -5,12 +5,13 @@ type Props = {
   value: string;
   onChange: (value: string) => void;
   placeholder?: string;
+  error?: boolean;
 };
 
-const BaseInput: FunctionComponent<Props> = ({ value, onChange, placeholder }) => {
+const BaseInput: FunctionComponent<Props> = ({ value, onChange, placeholder, error }) => {
   return (
     <textarea
-      className={styles.baseInput}
+      className={error ? `${styles.baseInput} ${styles.baseInputError}` : styles.baseInput}
       value={value}
       onChange={e => onChange(e.target.value)}
       placeholder={placeholder}

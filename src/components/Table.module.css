@@ -10,7 +10,8 @@
       font-family: 'Pretendard Variable';
 }
 .columnHeader {
-      width: 1295px;
+      width: 100%;
+      max-width: 1295px;
       display: flex;
       align-items: flex-start;
       font-size: 15px;
@@ -19,6 +20,7 @@
 }
 .column {
       width: 120px;
+      flex-shrink: 0;
       background-color: #edf1f5;
       border-bottom: 1px solid #99b0cb;
       box-sizing: border-box;
@@ -31,16 +33,21 @@
       line-height: 150%;
 }
 .column2 {
-      width: 815px;
+      flex: 1;
+      min-width: 0;
       background-color: #edf1f5;
       border-bottom: 1px solid #99b0cb;
       box-sizing: border-box;
       display: flex;
       align-items: center;
       padding: 14px 16px;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
 }
 .rowGroup {
-      width: 1295px;
+      width: 100%;
+      max-width: 1295px;
       display: flex;
       align-items: flex-start;
       transition: background-color 0.15s;
@@ -60,11 +67,14 @@
 }
 .row2 {
       align-self: stretch;
-      width: 815px;
+      flex: 1;
+      min-width: 0;
       border-bottom: 1px solid #d8d8d8;
       box-sizing: border-box;
       display: flex;
       align-items: center;
       padding: 18px 16px;
-      flex-shrink: 0;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
 }

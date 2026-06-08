@@ -18,6 +18,7 @@ const SubmitPage: FunctionComponent = () => {
   const [code, setCode] = useState('');
   const [submitting, setSubmitting] = useState(false);
   const [submitError, setSubmitError] = useState<string | null>(null);
+  const [codeEmptyError, setCodeEmptyError] = useState(false);
 
   useEffect(() => {
     fetchProblems()
@@ -26,7 +27,13 @@ const SubmitPage: FunctionComponent = () => {
   }, [id]);
 
   const handleSubmit = async () => {
-    if (!code.trim() || submitting) return;
+    if (submitting) return;
+    if (!code.trim()) {
+      setCodeEmptyError(true);
+      setSubmitError('코드를 입력해주세요.');
+      return;
+    }
+    setCodeEmptyError(false);
     setSubmitting(true);
     setSubmitError(null);
     try {
@@ -65,8 +72,15 @@ const SubmitPage: FunctionComponent = () => {
           <div style={{ fontSize: '15px', fontFamily: 'Pretendard GOV', color: '#1d1d1d', lineHeight: '150%' }}>코드</div>
           <BaseInput
             value={code}
-            onChange={setCode}
+            onChange={value => {
+              setCode(value);
+              if (codeEmptyError && value.trim()) {
+                setCodeEmptyError(false);
+                setSubmitError(null);
+              }
+            }}
             placeholder={`${language} 코드를 입력하세요...`}
+            error={codeEmptyError}
           />
         </div>
 

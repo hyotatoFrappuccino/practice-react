@@ -58,13 +58,13 @@ function App() {
   return (
     <>
       <Header onSearchChange={handleSearchChange} />
-      <main style={{ display: 'flex', flexDirection: 'column', gap: '24px', padding: '24px 0' }}>
+      <main style={{ display: 'flex', flexDirection: 'column', gap: '24px', padding: '24px 16px', boxSizing: 'border-box' }}>
         {loading && <div style={{ textAlign: 'center', padding: '40px', color: '#555', fontFamily: 'Pretendard GOV' }}>불러오는 중...</div>}
         {error && <div style={{ textAlign: 'center', padding: '40px', color: '#ff383c', fontFamily: 'Pretendard GOV' }}>{error}</div>}
         {!loading && !error && (
           <>
             {dailyProblem && <DailyProblem problem={dailyProblem} />}
-            <div style={{ width: '1295px', margin: '0 auto', display: 'flex', justifyContent: 'flex-end' }}>
+            <div style={{ width: '100%', maxWidth: '1295px', margin: '0 auto', display: 'flex', justifyContent: 'flex-end', boxSizing: 'border-box' }}>
               <RateRangeSlider min={rateMin} max={rateMax} onChange={handleRateChange} />
             </div>
             <Table rows={paginatedProblems} />

@@ -19,3 +19,9 @@
 .baseInput:focus {
       border-color: #246beb;
 }
+.baseInputError {
+      border-color: #ff383c;
+}
+.baseInputError:focus {
+      border-color: #ff383c;
+}
