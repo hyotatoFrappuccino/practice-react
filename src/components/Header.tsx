@@ -43,26 +43,36 @@ const Header: FunctionComponent<Props> = ({ onSearchChange }) => {
                 <div className={styles.header}>
                     <div className={styles.utilityGroup}>
                         <div className={styles.misloganH48}>
-                            <div className={styles.mi}>
+                            <div className={styles.mi} style={{ cursor: 'pointer' }} onClick={() => navigate('/')}>
                                 <img className={styles.favicon11} src="/logo.png" alt="CodeClass 로고" />
                                 <div className={styles.codeclass}>CodeClass</div>
                             </div>
                         </div>
                         <div className={styles.utilityMedium}>
-                            <div className={styles.baseHeaderUtilityMenu} style={{ cursor: 'pointer' }} onClick={handleSearchToggle}>
-                                {isSearchOpen ? <X size={20} /> : <Search size={20} />}
-                                <b className={styles.div}>문제 검색</b>
-                            </div>
+                            {!isSearchOpen && (
+                                <div className={styles.baseHeaderUtilityMenu} style={{ cursor: 'pointer' }} onClick={handleSearchToggle}>
+                                    <Search size={20} />
+                                    <b className={styles.div}>문제 검색</b>
+                                </div>
+                            )}
                             {isSearchOpen && (
-                                <input
-                                    autoFocus
-                                    type="text"
-                                    value={inputValue}
-                                    onChange={handleInputChange}
-                                    onKeyDown={handleKeyDown}
-                                    placeholder="문제 번호 또는 제목 검색..."
-                                    className={styles.searchInput}
-                                />
+                                <div style={{ position: 'relative', display: 'flex', alignItems: 'center' }}>
+                                    <input
+                                        autoFocus
+                                        type="text"
+                                        value={inputValue}
+                                        onChange={handleInputChange}
+                                        onKeyDown={handleKeyDown}
+                                        placeholder="문제 번호 또는 제목 검색..."
+                                        className={styles.searchInput}
+                                        style={{ paddingRight: '36px' }}
+                                    />
+                                    <X
+                                        size={20}
+                                        style={{ position: 'absolute', right: '10px', cursor: 'pointer' }}
+                                        onClick={handleSearchToggle}
+                                    />
+                                </div>
                             )}
                         </div>
                     </div>
