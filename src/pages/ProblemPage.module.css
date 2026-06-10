@@ -11,8 +11,7 @@
     align-items: center;
     gap: 12px;
     padding: 10px 20px;
-    border-bottom: 1px solid #d8d8d8;
-    background: #fff;
+    background: #f5f6f8;
     flex-shrink: 0;
     font-family: 'Pretendard GOV', sans-serif;
 }
@@ -80,7 +79,7 @@
     content: '';
     position: absolute;
     inset: 0;
-    background: #d8d8d8;
+    background: #e2e4e8;
     width: 1px;
     left: 50%;
     transform: translateX(-50%);
@@ -115,7 +114,6 @@
     flex-direction: column;
     background: #fff;
     overflow: hidden;
-    border-left: 1px solid #d8d8d8;
 }
 
 .editorToolbar {
@@ -123,7 +121,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 16px;
-    border-bottom: 1px solid #e8e8e8;
+    background: #f5f6f8;
     flex-shrink: 0;
     gap: 12px;
 }
@@ -183,7 +181,7 @@
 
 .statusBar {
     padding: 6px 16px;
-    border-top: 1px solid #e8e8e8;
+    background: #f5f6f8;
     font-size: 13px;
     font-family: 'Pretendard GOV', sans-serif;
     flex-shrink: 0;
