@@ -45,7 +45,12 @@ export async function submitCode(problemId: number, body: SubmitRequest): Promis
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(body),
   });
-  if (!res.ok) throw new Error(res.status === 404 ? '존재하지 않는 문제입니다.' : '제출에 실패했습니다.');
+  if (!res.ok) {
+    if (res.status === 400) throw new Error('제출 내용을 확인해주세요. (지원하지 않는 언어이거나 코드 길이를 초과했습니다.)');
+    if (res.status === 429) throw new Error('제출 횟수를 초과했습니다. 잠시 후 다시 시도해주세요.');
+    if (res.status === 404) throw new Error('존재하지 않는 문제입니다.');
+    throw new Error('제출에 실패했습니다.');
+  }
   return res.json();
 }
 

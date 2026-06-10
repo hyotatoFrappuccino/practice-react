@@ -6,17 +6,17 @@ import Header from '../components/Header';
 import { fetchProblems, submitCode, type Problem as ProblemType } from '../api/api';
 import styles from './ProblemPage.module.css';
 
-const LANGUAGES = ['Python3', 'C++17', 'C++14', 'Java', 'C', 'Kotlin', 'Swift', 'Go'];
+const LANGUAGES = ['Python3', 'C++17', 'C++14', 'Java', 'C99', 'Kotlin', 'C#'];
+const MAX_CODE_LENGTH = 65536;
 
 const MONACO_LANG: Record<string, string> = {
   'Python3': 'python',
   'C++17':   'cpp',
   'C++14':   'cpp',
   'Java':    'java',
-  'C':       'c',
+  'C99':     'c',
   'Kotlin':  'kotlin',
-  'Swift':   'swift',
-  'Go':      'go',
+  'C#':      'csharp',
 };
 const DEFAULT_RIGHT_WIDTH = 480;
 const MIN_WIDTH = 250;
@@ -102,6 +102,11 @@ const ProblemPage: FunctionComponent = () => {
     if (!code.trim()) {
       setCodeError(true);
       setSubmitError('코드를 입력해주세요.');
+      return;
+    }
+    if (code.length > MAX_CODE_LENGTH) {
+      setCodeError(true);
+      setSubmitError(`코드 길이를 초과했습니다. (${code.length.toLocaleString()} / ${MAX_CODE_LENGTH.toLocaleString()}자)`);
       return;
     }
     setCodeError(false);
