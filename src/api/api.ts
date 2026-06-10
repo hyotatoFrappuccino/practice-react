@@ -60,6 +60,113 @@ export async function fetchJudgeResults(): Promise<JudgeResult[]> {
   return res.json();
 }
 
+// ── Board ──────────────────────────────────────────────────────────────────
+
+export type PostSummary = {
+  id: number;
+  category: string;
+  title: string;
+  author: string;
+  createdAt: string;
+  viewCount: number;
+  commentCount: number;
+  pinned: boolean;
+};
+
+export type PostComment = {
+  id: number;
+  author: string;
+  content: string;
+  createdAt: string;
+};
+
+export type PostDetail = {
+  id: number;
+  category: string;
+  title: string;
+  content: string;
+  author: string;
+  createdAt: string;
+  viewCount: number;
+  pinned: boolean;
+  comments: PostComment[];
+};
+
+export type PostsPage = {
+  content: PostSummary[];
+  totalElements: number;
+  totalPages: number;
+  number: number;
+  size: number;
+};
+
+export async function fetchPosts(params?: {
+  category?: string;
+  page?: number;
+  size?: number;
+}): Promise<PostsPage> {
+  const qs = new URLSearchParams();
+  if (params?.category) qs.set('category', params.category);
+  if (params?.page !== undefined) qs.set('page', String(params.page));
+  if (params?.size !== undefined) qs.set('size', String(params.size));
+  const res = await fetch(`${BASE_URL}/api/posts?${qs}`);
+  if (!res.ok) throw new Error('게시글 목록을 불러오지 못했습니다.');
+  return res.json();
+}
+
+export async function fetchPost(id: number): Promise<PostDetail> {
+  const res = await fetch(`${BASE_URL}/api/posts/${id}`);
+  if (!res.ok) throw new Error('게시글을 불러오지 못했습니다.');
+  return res.json();
+}
+
+export async function createPost(body: {
+  category: string;
+  title: string;
+  content: string;
+  author: string;
+  password: string;
+}): Promise<PostDetail> {
+  const res = await fetch(`${BASE_URL}/api/posts`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error('게시글 작성에 실패했습니다.');
+  return res.json();
+}
+
+export async function deletePost(id: number, password: string): Promise<void> {
+  const res = await fetch(`${BASE_URL}/api/posts/${id}`, {
+    method: 'DELETE',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify({ password }),
+  });
+  if (res.status === 403) throw new Error('비밀번호가 일치하지 않습니다.');
+  if (res.status === 404) throw new Error('존재하지 않는 게시글입니다.');
+  if (!res.ok) throw new Error('삭제에 실패했습니다.');
+}
+
+export async function createComment(
+  postId: number,
+  body: { author: string; content: string },
+): Promise<PostComment> {
+  const res = await fetch(`${BASE_URL}/api/posts/${postId}/comments`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  });
+  if (!res.ok) throw new Error('댓글 작성에 실패했습니다.');
+  return res.json();
+}
+
+export function formatDate(iso: string): string {
+  const d = new Date(iso);
+  return `${d.getFullYear()}. ${d.getMonth() + 1}. ${d.getDate()}. ${String(d.getHours()).padStart(2, '0')}:${String(d.getMinutes()).padStart(2, '0')}`;
+}
+
+// ── Utils ──────────────────────────────────────────────────────────────────
+
 export function formatRelativeTime(iso: string): string {
   const diff = Date.now() - new Date(iso).getTime();
   const mins = Math.floor(diff / 60_000);

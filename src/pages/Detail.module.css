@@ -1,0 +1,304 @@
+.page {
+    max-width: 960px;
+    margin: 0 auto;
+    width: 100%;
+    padding: 32px 16px 60px;
+    box-sizing: border-box;
+    font-family: 'Pretendard GOV', sans-serif;
+}
+
+.backBtn {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 14px;
+    border-radius: 6px;
+    border: 1px solid #c6c6c6;
+    background: #fff;
+    font-size: 14px;
+    font-family: 'Pretendard GOV', sans-serif;
+    color: #1d1d1d;
+    cursor: pointer;
+    margin-bottom: 28px;
+    transition: border-color 0.15s;
+}
+
+.backBtn:hover { border-color: #888; }
+
+/* ── Hero ── */
+.hero {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+}
+
+.heroThumb {
+    width: 240px;
+    height: 150px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #003675, #0056b3);
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.heroThumbIcon {
+    font-size: 48px;
+    opacity: 0.5;
+}
+
+.heroInfo {
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.badgeRow {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.badge {
+    display: inline-block;
+    font-size: 12px;
+    font-weight: 700;
+    padding: 3px 12px;
+    border-radius: 20px;
+    font-family: 'Pretendard GOV', sans-serif;
+}
+
+.heroTitle {
+    font-size: 24px;
+    font-weight: 700;
+    color: #1d1d1d;
+    margin: 0;
+    line-height: 1.4;
+}
+
+.heroMeta {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    font-size: 14px;
+    color: #555;
+}
+
+.heroMetaItem {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.heroMetaValue {
+    font-weight: 600;
+    color: #1d1d1d;
+}
+
+.rating {
+    color: #e65100;
+    font-weight: 700;
+}
+
+.ctaBtn {
+    align-self: flex-start;
+    margin-top: 8px;
+    padding: 12px 32px;
+    border-radius: 8px;
+    border: none;
+    background: #003675;
+    color: #fff;
+    font-size: 16px;
+    font-weight: 700;
+    font-family: 'Pretendard GOV', sans-serif;
+    cursor: pointer;
+    transition: background 0.15s;
+}
+
+.ctaBtn:hover { background: #00255a; }
+
+/* ── Section ── */
+.section {
+    margin-bottom: 40px;
+}
+
+.sectionTitle {
+    font-size: 18px;
+    font-weight: 700;
+    color: #1d1d1d;
+    margin: 0 0 16px;
+    padding-bottom: 12px;
+    border-bottom: 2px solid #003675;
+}
+
+.desc {
+    font-size: 15px;
+    line-height: 1.8;
+    color: #333;
+    white-space: pre-line;
+}
+
+/* ── Curriculum ── */
+.curriculum {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.curriculumSection {
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.curriculumHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 12px 16px;
+    background: #f8f9fb;
+    cursor: pointer;
+    user-select: none;
+}
+
+.curriculumHeaderLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.curriculumSectionTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1d1d1d;
+}
+
+.curriculumCount {
+    font-size: 13px;
+    color: #888;
+}
+
+.curriculumLessons {
+    display: flex;
+    flex-direction: column;
+}
+
+.curriculumLesson {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 16px;
+    border-top: 1px solid #f0f0f0;
+    font-size: 14px;
+    color: #555;
+}
+
+.lessonLeft {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.lessonNum {
+    font-size: 12px;
+    color: #bbb;
+    width: 20px;
+}
+
+.lessonDuration {
+    font-size: 12px;
+    color: #aaa;
+    white-space: nowrap;
+}
+
+/* ── Members ── */
+.memberGrid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: 12px;
+}
+
+.memberCard {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 12px;
+    border: 1px solid #e8e8e8;
+    border-radius: 8px;
+    background: #fff;
+}
+
+.avatar {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    font-weight: 700;
+    color: #fff;
+    flex-shrink: 0;
+}
+
+.memberInfo {
+    min-width: 0;
+}
+
+.memberName {
+    font-size: 14px;
+    font-weight: 600;
+    color: #1d1d1d;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.memberRole {
+    font-size: 12px;
+    color: #888;
+}
+
+/* ── Activity ── */
+.activityList {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
+
+.activityItem {
+    display: flex;
+    align-items: flex-start;
+    gap: 12px;
+    padding: 14px 0;
+    border-bottom: 1px solid #f0f0f0;
+}
+
+.activityDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #003675;
+    margin-top: 5px;
+    flex-shrink: 0;
+}
+
+.activityContent {
+    flex: 1;
+}
+
+.activityText {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.5;
+}
+
+.activityDate {
+    font-size: 12px;
+    color: #aaa;
+    margin-top: 2px;
+}

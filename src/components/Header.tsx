@@ -13,9 +13,9 @@ const Header: FunctionComponent<Props> = ({ onSearchChange }) => {
     const isMain = location.pathname === '/';
     const isProblems = location.pathname === '/' || location.pathname.startsWith('/problems');
     const isStatus = location.pathname === '/status';
-    const isLectures = location.pathname === '/lectures';
-    const isBoard = location.pathname === '/board';
-    const isGroups = location.pathname === '/groups';
+    const isLectures = location.pathname.startsWith('/lectures');
+    const isBoard = location.pathname.startsWith('/board');
+    const isGroups = location.pathname.startsWith('/groups');
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
@@ -96,9 +96,6 @@ const Header: FunctionComponent<Props> = ({ onSearchChange }) => {
                         </div>
                         <div className={isGroups ? styles.baseGnb1depthAtomic : styles.baseGnb1depthAtomic2} style={{ cursor: 'pointer' }} onClick={() => navigate('/groups')}>
                             <b className={styles.div}>그룹</b>
-                        </div>
-                        <div className={styles.baseGnb1depthAtomic2}>
-                            <b className={styles.div}>더보기</b>
                         </div>
                     </div>
                 </div>
