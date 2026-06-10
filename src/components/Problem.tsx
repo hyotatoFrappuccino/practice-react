@@ -25,6 +25,7 @@ const DIFFICULTY_COLOR: Record<string, { bg: string; color: string }> = {
 };
 
 type Props = {
+  id: number;
   title: string;
   difficulty: string;
   algorithm: string;
@@ -36,6 +37,7 @@ type Props = {
 };
 
 const Problem: FunctionComponent<Props> = ({
+  id,
   title,
   difficulty,
   algorithm,
@@ -51,7 +53,7 @@ const Problem: FunctionComponent<Props> = ({
       <div className={styles.baseInfo}>
         <div className={styles.baseInfo2}>
           <div className={styles.div2}>
-            <b className={styles.b}>{title}</b>
+            <b className={styles.b}>{id}. {title}</b>
             <span className={styles.diffBadge} style={{ backgroundColor: diffStyle.bg, color: diffStyle.color }}>
               {difficulty}
             </span>

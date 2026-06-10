@@ -130,11 +130,6 @@ const ProblemPage: FunctionComponent = () => {
         <button className={styles.backBtn} onClick={() => navigate('/')}>
           ← 목록
         </button>
-        {problem && (
-          <span className={styles.problemTitle}>
-            {problem.id}. {problem.title}
-          </span>
-        )}
       </div>
 
       {loading && (
@@ -153,6 +148,7 @@ const ProblemPage: FunctionComponent = () => {
           {!leftCollapsed && (
             <div className={styles.leftPanel}>
               <Problem
+                id={problem.id}
                 title={problem.title}
                 difficulty={problem.difficulty}
                 algorithm={problem.algorithm}

@@ -37,14 +37,6 @@
     border-color: #888;
 }
 
-.problemTitle {
-    font-size: 16px;
-    font-weight: 700;
-    color: #1d1d1d;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
 
 /* ── Split container ── */
 .split {
