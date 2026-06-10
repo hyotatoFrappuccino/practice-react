@@ -58,11 +58,11 @@ const Problem: FunctionComponent<Props> = ({
       <div className={styles.div4}>
         <b className={styles.b2}>예제 입력 1</b>
       </div>
-      <div className={styles.aB}>{exampleInput}</div>
+      <pre className={styles.exampleBlock}>{exampleInput}</pre>
       <div className={styles.div4}>
         <b className={styles.b2}>예제 출력 1</b>
       </div>
-      <div className={styles.aB}>{exampleOutput}</div>
+      <pre className={styles.exampleBlock}>{exampleOutput}</pre>
     </div>
   );
 };
