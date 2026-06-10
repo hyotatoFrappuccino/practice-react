@@ -1,5 +1,22 @@
-import type { FunctionComponent } from 'react';
+import { useState, type FunctionComponent } from 'react';
+import { Copy, Check } from 'lucide-react';
 import styles from './Problem.module.css';
+
+const CopyButton: FunctionComponent<{ text: string }> = ({ text }) => {
+  const [copied, setCopied] = useState(false);
+
+  const handleCopy = async () => {
+    await navigator.clipboard.writeText(text);
+    setCopied(true);
+    setTimeout(() => setCopied(false), 2000);
+  };
+
+  return (
+    <button className={styles.copyBtn} onClick={handleCopy} title="복사">
+      {copied ? <Check size={15} /> : <Copy size={15} />}
+    </button>
+  );
+};
 
 const DIFFICULTY_COLOR: Record<string, { bg: string; color: string }> = {
   '하': { bg: '#e8f5e9', color: '#2e7d32' },
@@ -58,11 +75,17 @@ const Problem: FunctionComponent<Props> = ({
       <div className={styles.div4}>
         <b className={styles.b2}>예제 입력 1</b>
       </div>
-      <pre className={styles.exampleBlock}>{exampleInput}</pre>
+      <div className={styles.exampleWrap}>
+        <pre className={styles.exampleBlock}>{exampleInput}</pre>
+        <CopyButton text={exampleInput} />
+      </div>
       <div className={styles.div4}>
         <b className={styles.b2}>예제 출력 1</b>
       </div>
-      <pre className={styles.exampleBlock}>{exampleOutput}</pre>
+      <div className={styles.exampleWrap}>
+        <pre className={styles.exampleBlock}>{exampleOutput}</pre>
+        <CopyButton text={exampleOutput} />
+      </div>
     </div>
   );
 };
