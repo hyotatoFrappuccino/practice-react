@@ -78,3 +78,68 @@
       text-overflow: ellipsis;
       white-space: nowrap;
 }
+.columnNarrow {
+      width: 80px;
+      flex-shrink: 0;
+      background-color: #edf1f5;
+      border-bottom: 1px solid #99b0cb;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 8px;
+}
+.columnAlgo {
+      width: 160px;
+      flex-shrink: 0;
+      background-color: #edf1f5;
+      border-bottom: 1px solid #99b0cb;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      padding: 14px 12px;
+}
+.rowNarrow {
+      align-self: stretch;
+      width: 80px;
+      flex-shrink: 0;
+      border-bottom: 1px solid #d8d8d8;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 14px 8px;
+}
+.rowAlgo {
+      align-self: stretch;
+      width: 160px;
+      flex-shrink: 0;
+      border-bottom: 1px solid #d8d8d8;
+      box-sizing: border-box;
+      display: flex;
+      align-items: center;
+      padding: 14px 12px;
+}
+.diffBadge {
+      display: inline-block;
+      font-size: 14px;
+      font-weight: 700;
+      padding: 3px 10px;
+      border-radius: 20px;
+      font-family: 'Pretendard GOV';
+}
+.algoTags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+}
+.algoTag {
+      display: inline-block;
+      font-size: 14px;
+      font-family: 'Pretendard GOV';
+      color: #003675;
+      background-color: #e8eef6;
+      border-radius: 4px;
+      padding: 2px 7px;
+      white-space: nowrap;
+}

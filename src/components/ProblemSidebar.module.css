@@ -1,0 +1,155 @@
+.sidebar {
+    width: 200px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    align-self: flex-start;
+    position: sticky;
+    top: 24px;
+    font-family: 'Pretendard GOV', sans-serif;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: 12px;
+    border-bottom: 1px solid #ebebeb;
+    margin-bottom: 0;
+}
+
+.headerTitle {
+    font-size: 15px;
+    font-weight: 700;
+    color: #1d1d1d;
+    font-family: 'Pretendard GOV', sans-serif;
+}
+
+.resetBtn {
+    font-size: 13px;
+    font-family: 'Pretendard GOV', sans-serif;
+    color: #246beb;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.resetBtn:hover {
+    text-decoration: underline;
+}
+
+.section {
+    padding: 16px 0;
+    border-bottom: 1px solid #ebebeb;
+}
+
+.sectionTitle {
+    font-size: 13px;
+    font-weight: 700;
+    color: #888;
+    letter-spacing: 0.04em;
+    text-transform: uppercase;
+    margin: 0 0 10px;
+}
+
+/* ── Sort ── */
+.sortButtons {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+}
+
+.sortBtn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    width: 100%;
+    padding: 8px 12px;
+    border-radius: 6px;
+    border: 1px solid #e0e0e0;
+    background: #fff;
+    color: #555;
+    font-size: 13px;
+    font-family: 'Pretendard GOV', sans-serif;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+    text-align: left;
+}
+
+.sortBtn:hover {
+    border-color: #aaa;
+    color: #1d1d1d;
+}
+
+.sortBtnActive {
+    border-color: #246beb;
+    border-width: 1.5px;
+    color: #246beb;
+    background: #f0f5ff;
+}
+
+/* ── Difficulty chips ── */
+.chips {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.diffChip {
+    padding: 5px 14px;
+    border-radius: 20px;
+    border: 1.5px solid;
+    font-size: 13px;
+    font-weight: 700;
+    font-family: 'Pretendard GOV', sans-serif;
+    cursor: pointer;
+    transition: background 0.15s, color 0.15s, border-color 0.15s;
+}
+
+/* ── Algorithm chips ── */
+.algoList {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    max-height: 300px;
+    overflow-y: auto;
+    padding-right: 4px;
+}
+
+.algoList::-webkit-scrollbar {
+    width: 4px;
+}
+
+.algoList::-webkit-scrollbar-thumb {
+    background: #d8d8d8;
+    border-radius: 2px;
+}
+
+.algoChip {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 6px 10px;
+    border-radius: 6px;
+    border: none;
+    background: transparent;
+    color: #555;
+    font-size: 13px;
+    font-family: 'Pretendard GOV', sans-serif;
+    cursor: pointer;
+    text-align: left;
+    transition: background 0.12s, color 0.12s;
+}
+
+.algoChip:hover {
+    background: #f0f0f0;
+    color: #1d1d1d;
+}
+
+.algoChipActive {
+    background: #e8eef6;
+    color: #003675;
+    font-weight: 600;
+}

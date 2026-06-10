@@ -1,0 +1,62 @@
+.filterBar {
+    width: 100%;
+    max-width: 1295px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 0 16px;
+    height: 41px;
+    background: #fff;
+    border: 1px solid #717171;
+    border-radius: 6px;
+    box-sizing: border-box;
+    font-size: 15px;
+    font-family: 'Pretendard Variable';
+    color: #1d1d1d;
+    flex-wrap: wrap;
+}
+
+.label {
+    font-size: 15px;
+    color: #8e8e8e;
+    white-space: nowrap;
+    flex-shrink: 0;
+}
+
+.pills {
+    display: flex;
+    gap: 6px;
+    flex-shrink: 0;
+}
+
+.pill {
+    height: 27px;
+    padding: 0 14px;
+    border-radius: 20px;
+    border: 1.5px solid #d8d8d8;
+    background: #fff;
+    color: #555;
+    font-size: 14px;
+    font-family: 'Pretendard GOV';
+    font-weight: 600;
+    cursor: pointer;
+    transition: border-color 0.15s, background 0.15s, color 0.15s;
+}
+
+.pill:hover {
+    border-color: #717171;
+}
+
+.pillActive {
+    border-color: #246beb;
+    border-width: 2px;
+    background: #fff;
+    color: #246beb;
+}
+
+.divider {
+    width: 1px;
+    height: 20px;
+    background: #d8d8d8;
+    flex-shrink: 0;
+}

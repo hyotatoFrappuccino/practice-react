@@ -40,6 +40,8 @@ const ProblemPage: FunctionComponent = () => {
           <>
             <Problem
               title={problem.title}
+              difficulty={problem.difficulty}
+              algorithm={problem.algorithm}
               description={problem.description}
               inputDesc={problem.inputDesc}
               outputDesc={problem.outputDesc}

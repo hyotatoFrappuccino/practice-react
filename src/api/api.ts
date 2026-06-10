@@ -6,6 +6,8 @@ export type Problem = {
   solved: number;
   submissions: number;
   rate: string;
+  difficulty: string;
+  algorithm: string;
   description: string;
   inputDesc: string;
   outputDesc: string;
