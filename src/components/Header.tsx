@@ -13,6 +13,9 @@ const Header: FunctionComponent<Props> = ({ onSearchChange }) => {
     const isMain = location.pathname === '/';
     const isProblems = location.pathname === '/' || location.pathname.startsWith('/problems');
     const isStatus = location.pathname === '/status';
+    const isLectures = location.pathname === '/lectures';
+    const isBoard = location.pathname === '/board';
+    const isGroups = location.pathname === '/groups';
     const [isSearchOpen, setIsSearchOpen] = useState(false);
     const [inputValue, setInputValue] = useState('');
 
@@ -85,13 +88,13 @@ const Header: FunctionComponent<Props> = ({ onSearchChange }) => {
                         <div className={isStatus ? styles.baseGnb1depthAtomic : styles.baseGnb1depthAtomic2} style={{ cursor: 'pointer' }} onClick={() => navigate('/status')}>
                             <b className={styles.div}>채점 현황</b>
                         </div>
-                        <div className={styles.baseGnb1depthAtomic2}>
+                        <div className={isLectures ? styles.baseGnb1depthAtomic : styles.baseGnb1depthAtomic2} style={{ cursor: 'pointer' }} onClick={() => navigate('/lectures')}>
                             <b className={styles.div}>강의</b>
                         </div>
-                        <div className={styles.baseGnb1depthAtomic2}>
+                        <div className={isBoard ? styles.baseGnb1depthAtomic : styles.baseGnb1depthAtomic2} style={{ cursor: 'pointer' }} onClick={() => navigate('/board')}>
                             <b className={styles.div}>게시판</b>
                         </div>
-                        <div className={styles.baseGnb1depthAtomic2}>
+                        <div className={isGroups ? styles.baseGnb1depthAtomic : styles.baseGnb1depthAtomic2} style={{ cursor: 'pointer' }} onClick={() => navigate('/groups')}>
                             <b className={styles.div}>그룹</b>
                         </div>
                         <div className={styles.baseGnb1depthAtomic2}>

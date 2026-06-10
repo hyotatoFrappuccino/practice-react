@@ -7,6 +7,9 @@ import App from './App.tsx'
 import ProblemPage from './pages/ProblemPage.tsx'
 import SubmitPage from './pages/SubmitPage.tsx'
 import GradingStatusPage from './pages/GradingStatusPage.tsx'
+import LecturePage from './pages/LecturePage.tsx'
+import BoardPage from './pages/BoardPage.tsx'
+import GroupPage from './pages/GroupPage.tsx'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
@@ -16,6 +19,9 @@ createRoot(document.getElementById('root')!).render(
         <Route path="/problems/:id" element={<ProblemPage />} />
         <Route path="/problems/:id/submit" element={<SubmitPage />} />
         <Route path="/status" element={<GradingStatusPage />} />
+        <Route path="/lectures" element={<LecturePage />} />
+        <Route path="/board" element={<BoardPage />} />
+        <Route path="/groups" element={<GroupPage />} />
       </Routes>
     </BrowserRouter>
   </StrictMode>,
