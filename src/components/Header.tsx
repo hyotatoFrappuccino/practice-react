@@ -88,11 +88,11 @@ const Header: FunctionComponent<Props> = ({ onSearchChange }) => {
                         <div className={isStatus ? styles.baseGnb1depthAtomic : styles.baseGnb1depthAtomic2} style={{ cursor: 'pointer' }} onClick={() => navigate('/status')}>
                             <b className={styles.div}>채점 현황</b>
                         </div>
-                        <div className={isLectures ? styles.baseGnb1depthAtomic : styles.baseGnb1depthAtomic2} style={{ cursor: 'pointer' }} onClick={() => navigate('/lectures')}>
-                            <b className={styles.div}>강의</b>
-                        </div>
                         <div className={isBoard ? styles.baseGnb1depthAtomic : styles.baseGnb1depthAtomic2} style={{ cursor: 'pointer' }} onClick={() => navigate('/board')}>
                             <b className={styles.div}>게시판</b>
+                        </div>
+                        <div className={isLectures ? styles.baseGnb1depthAtomic : styles.baseGnb1depthAtomic2} style={{ cursor: 'pointer' }} onClick={() => navigate('/lectures')}>
+                            <b className={styles.div}>강의</b>
                         </div>
                         <div className={isGroups ? styles.baseGnb1depthAtomic : styles.baseGnb1depthAtomic2} style={{ cursor: 'pointer' }} onClick={() => navigate('/groups')}>
                             <b className={styles.div}>그룹</b>
