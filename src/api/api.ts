@@ -1,4 +1,4 @@
-const BASE_URL = import.meta.env.DEV ? 'http://localhost:8080' : '';
+const BASE_URL = import.meta.env.DEV ? 'https://api.codeclass.n-e.kr' : '';
 
 export type Problem = {
   id: number;
@@ -40,22 +40,53 @@ export async function fetchProblems(): Promise<Problem[]> {
 }
 
 export async function submitCode(problemId: number, body: SubmitRequest): Promise<JudgeResult> {
-  const res = await fetch(`${BASE_URL}/api/submit/${problemId}`, {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify(body),
-  });
-  if (!res.ok) {
-    if (res.status === 400) throw new Error('제출 내용을 확인해주세요. (지원하지 않는 언어이거나 코드 길이를 초과했습니다.)');
-    if (res.status === 429) throw new Error('제출 횟수를 초과했습니다. 잠시 후 다시 시도해주세요.');
-    if (res.status === 404) throw new Error('존재하지 않는 문제입니다.');
-    throw new Error('제출에 실패했습니다.');
+  const MAX_RETRIES = 3;
+  const BASE_DELAY_MS = 1000;
+
+  for (let attempt = 0; attempt <= MAX_RETRIES; attempt++) {
+    const res = await fetch(`${BASE_URL}/api/submit/${problemId}`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(body),
+    });
+
+    if (res.status === 503 && attempt < MAX_RETRIES) {
+      await new Promise(resolve => setTimeout(resolve, BASE_DELAY_MS * 2 ** attempt));
+      continue;
+    }
+
+    if (!res.ok) {
+      if (res.status === 400) throw new Error('제출 내용을 확인해주세요. (지원하지 않는 언어이거나 코드 길이를 초과했습니다.)');
+      if (res.status === 404) throw new Error('존재하지 않는 문제입니다.');
+      if (res.status === 429) throw new Error('제출 횟수를 초과했습니다. 잠시 후 다시 시도해주세요.');
+      if (res.status === 503) throw new Error('현재 채점 서버가 혼잡합니다. 잠시 후 다시 시도해주세요.');
+      throw new Error('제출에 실패했습니다.');
+    }
+
+    return res.json();
   }
-  return res.json();
+
+  throw new Error('현재 채점 서버가 혼잡합니다. 잠시 후 다시 시도해주세요.');
 }
 
-export async function fetchJudgeResults(): Promise<JudgeResult[]> {
-  const res = await fetch(`${BASE_URL}/api/judge-results`);
+export type JudgeResultsPage = {
+  content: JudgeResult[];
+  totalElements: number;
+  totalPages: number;
+  number: number;
+  size: number;
+};
+
+export async function fetchJudgeResults(params?: {
+  page?: number;
+  size?: number;
+  sort?: string;
+}): Promise<JudgeResultsPage> {
+  const qs = new URLSearchParams();
+  if (params?.page !== undefined) qs.set('page', String(params.page));
+  if (params?.size !== undefined) qs.set('size', String(params.size));
+  if (params?.sort) qs.set('sort', params.sort);
+  const res = await fetch(`${BASE_URL}/api/judge-results?${qs}`);
   if (!res.ok) throw new Error('채점 결과를 불러오지 못했습니다.');
   return res.json();
 }
