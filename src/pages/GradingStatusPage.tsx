@@ -6,10 +6,11 @@ import JudgeTable from '../components/JudgeTable';
 import Pagination from '../components/Pagination';
 import { fetchJudgeResults, formatRelativeTime, type JudgeResult } from '../api/api';
 
-const ITEMS_PER_PAGE = 10;
+const ITEMS_PER_PAGE = 20;
 
 const GradingStatusPage: FunctionComponent = () => {
   const [results, setResults] = useState<JudgeResult[]>([]);
+  const [totalPages, setTotalPages] = useState(1);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
 
@@ -20,11 +21,16 @@ const GradingStatusPage: FunctionComponent = () => {
   const [currentPage, setCurrentPage] = useState(1);
 
   useEffect(() => {
-    fetchJudgeResults()
-      .then(setResults)
+    setLoading(true);
+    setError(null);
+    fetchJudgeResults({ page: currentPage - 1, size: ITEMS_PER_PAGE })
+      .then(page => {
+        setResults(page.content);
+        setTotalPages(Math.max(1, page.totalPages));
+      })
       .catch(e => setError(e instanceof Error ? e.message : '오류가 발생했습니다.'))
       .finally(() => setLoading(false));
-  }, []);
+  }, [currentPage]);
 
   const filtered = results.filter(r => {
     if (userId && !r.userId.includes(userId)) return false;
@@ -34,10 +40,7 @@ const GradingStatusPage: FunctionComponent = () => {
     return true;
   });
 
-  const totalPages = Math.max(1, Math.ceil(filtered.length / ITEMS_PER_PAGE));
-  const paginated = filtered
-    .slice((currentPage - 1) * ITEMS_PER_PAGE, currentPage * ITEMS_PER_PAGE)
-    .map(r => ({ ...r, submittedAt: formatRelativeTime(r.submittedAt) }));
+  const rows = filtered.map(r => ({ ...r, submittedAt: formatRelativeTime(r.submittedAt) }));
 
   const handleFilterChange = (setter: (v: string) => void) => (v: string) => {
     setter(v);
@@ -62,7 +65,7 @@ const GradingStatusPage: FunctionComponent = () => {
         {error && <div style={{ textAlign: 'center', padding: '40px', color: '#ff383c', fontFamily: 'Pretendard GOV' }}>{error}</div>}
         {!loading && !error && (
           <>
-            <JudgeTable rows={paginated} />
+            <JudgeTable rows={rows} />
             <Pagination currentPage={currentPage} totalPages={totalPages} onPageChange={setCurrentPage} />
           </>
         )}
